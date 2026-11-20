@@ -1,2 +1,4 @@
 /.venv
 /replay_memory
+__pycache__/
+*.pyc
