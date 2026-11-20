@@ -1,0 +1,42 @@
+# Orbit Wars RL dependencies. Requires Python >= 3.11 (kaggle-environments 1.33 needs it).
+#
+# Install from the project folder:
+#   .venv\Scripts\python -m pip install -r requirements.txt
+#   .venv\Scripts\python -m pip install --no-deps kaggle-environments==1.33.3
+#
+# kaggle-environments goes in with --no-deps because its gymnax -> flax ->
+# orbax-checkpoint chain ships file paths longer than Windows' 260-char limit
+# (fails unless LongPathsEnabled is set). Orbit Wars doesn't use gymnax.
+
+# CUDA 12.6 build: still supports Pascal GPUs (GTX 10xx); cu128+ builds do not.
+--extra-index-url https://download.pytorch.org/whl/cu126
+torch==2.14.1+cu126
+
+# Used directly by this project
+numpy>=2.0
+gymnasium==1.2.0
+
+# kaggle-environments 1.33.3 runtime dependencies (all except gymnax)
+Flask>=1.1.2
+jax
+jsonschema>=3.0.1
+litellm>=1.86.1,<1.94.0
+open_spiel==2.0.1
+pettingzoo>=1.26.1,<1.28
+pokerkit==0.6.3
+pydantic>=2.11.4
+pygame
+pyjson5
+termcolor
+requests>=2.25.1
+shimmy>=1.2.1
+transformers>=4.33.1
+tenacity
+google-auth>=2.35.0
+click>=8.3.0
+omegaconf>=2.3.0
+protobuf>=6.33.5
+PyYAML>=6.0.3
+scipy>=1.11.0
+tqdm>=4.67.1
+universal-pathlib>=0.3.5
